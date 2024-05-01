@@ -11,8 +11,8 @@ const getInviteCounts = async (guild) => {
 
 client.once('ready', async () => {
     console.log('Bot is online!');
-	console.log('Code by Wick Studio!');
-	console.log('discord.gg/wicks');
+	console.log('Code by Mate=4_.s !');
+	console.log('discord.gg/MassictCapt');
 
     // Load all server invites
     for (const [guildId, guild] of client.guilds.cache) {
@@ -57,7 +57,7 @@ client.on('guildMemberAdd', async member => {
     let inviterMention = 'Unknown';
     if (usedInvite && usedInvite.inviter) {
         inviterMention = `<@${usedInvite.inviter.id}>`;
-        console.log(`Member joined with invite code ${usedInvite.code}, invited by ${inviterMention}`);
+        console.log(`Member joined with invite code ${usedInvite.code}`);
     } else {
         console.log(`Member joined, but no matching invite was found.`);
     }
@@ -67,44 +67,22 @@ client.on('guildMemberAdd', async member => {
 
     const welcomeEmbed = new Discord.MessageEmbed()
         .setColor('#05131f')
-        .setTitle('Welcome to the Server!')
-        .setDescription(`Hello ${member}, welcome to **${member.guild.name}**! enjoy your stay.`)
+        .setTitle('السيرفر نور بوجودك😊!')
+        .setDescription(`اهلا بك يا ${member}, منور سيرفرنا المتواضع😊.`)
         .addFields(
-            { name: 'Username', value: member.user.tag, inline: true },
-            { name: 'Invited By', value: inviterMention, inline: true },
-            { name: 'Invite Used', value: usedInvite ? `||${usedInvite.code}||` : 'Direct Join', inline: true },
-            { name: 'You\'re Member', value: `${member.guild.memberCount}`, inline: true },
             { name: 'Server Rules', value: '<#1164662648080707604>.', inline: true },
             { name: 'Support Channel', value: '<#1166772582951964702>.', inline: true }
         )
         .setThumbnail(member.user.displayAvatarURL())
-        .setTimestamp();
+        .setTimestamp()
+	.setImage("")
+	.steTimestamp();
     const bannerUrl = fullUser.bannerURL({ dynamic: true, format: 'png', size: 1024 });
     if (bannerUrl) {
         welcomeEmbed.setImage(bannerUrl);
     }
 
-    // buttons
-    const row = new MessageActionRow()
-        .addComponents(
-            new MessageButton()
-                .setStyle('LINK')
-                .setURL('https://www.youtube.com/@wick_studio')       // link to button 1
-                .setLabel('YouTube')                                 // name of button 1
-                .setEmoji('<:Youtubee:1158819353953828984>'),       // emoji of button 1
-            new MessageButton()
-                .setStyle('LINK')
-                .setURL('https://github.com/wickstudio')           // link to button 2
-                .setLabel('GitHub')                               // name of button 2
-                .setEmoji('<:Github:1132413518348566589>'),      // emoji of button 2
-            new MessageButton()
-                .setStyle('LINK')
-                .setURL('https://wickdev.xyz/')                // link to button 3
-                .setLabel('Website')                          // name of button 3
-                .setEmoji('<:web:1129345172333932595>')      // emoji of button 3
-        );
-
-    welcomeChannel.send({ embeds: [welcomeEmbed], components: [row] });
+    welcomeChannel.send({ embeds: [welcomeEmbed] });
 
     invites[member.guild.id] = new Map(newInvites.map(invite => [invite.code, invite.uses]));
 });
