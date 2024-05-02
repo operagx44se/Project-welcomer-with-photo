@@ -92,4 +92,4 @@ client.on('guildMemberAdd', async member => {
     invites[member.guild.id] = new Map(newInvites.map(invite => [invite.code, invite.uses]));
 });
 
-client.login(config.botToken);
+client.login(config.botToken); // رجاءً لا تخلي توكن بوتك هنا ل تجنب مشاكل مثل الرسالة تصير رسالتين لما شخص يدخل للسيرفر اتمنى انه تخلون البروجكت بالكونفج
