@@ -68,16 +68,19 @@ client.on('guildMemberAdd', async member => {
     const fullUser = await client.users.fetch(member.user.id, { force: true });
 
     const welcomeEmbed = new Discord.MessageEmbed()
-        .setColor('#05131f')
-        .setTitle('السيرفر نور بوجودك😊!')
-        .setDescription(`اهلا بك يا ${member}, منور سيرفرنا المتواضع😊.`)
+        .setColor('#05131f') // تقدر تعدل على ال لون بس ما تخلوش Red , Green اكتب نفس ما هو موجود
+	    // Ex : #2ee71f
+        .setTitle('السيرفر نور بوجودك😊!') // تقدر تعدل على رسالة الترحيب
+        .setDescription(`اهلا بك يا ${member}, منور سيرفرنا المتواضع😊.`) // تقدر تعدل عليها ايضا لا تحذف الmember
         .addFields(
-            { name: 'Server Rules', value: '<#1164662648080707604>.', inline: true },
-            { name: 'Support Channel', value: '<#1166772582951964702>.', inline: true }
+            { name: 'Server Rules', value: '<#1164662648080707604>.', inline: true }, // هنا تخلي ايدي الروم الي انت عاوزو يروح له
+            // تقدر تعدل على اسم server Rules
+	    // تقدز تعدل على اسم Support Channel
+	    { name: 'Support Channel', value: '<#1166772582951964702>.', inline: true } // هنا نفس الشي
         )
         .setThumbnail(member.user.displayAvatarURL())
         .setTimestamp()
-	.setImage("")
+	.setImage("") // هنا تخلي رابط الصورة او البنر الي انت عاوزو
 	.steTimestamp();
     const bannerUrl = fullUser.bannerURL({ dynamic: true, format: 'png', size: 1024 });
     if (bannerUrl) {
