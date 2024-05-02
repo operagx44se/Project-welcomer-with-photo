@@ -1,5 +1,5 @@
+// معدل من قبل Mate
 const Discord = require('discord.js');
-
 const { Intents } = require('discord.js');
 const client = new Discord.Client({ intents: ["GUILDS", "GUILD_MEMBERS", "GUILD_INVITES"] });
 const config = require('./config.json');
@@ -69,15 +69,15 @@ client.on('guildMemberAdd', async member => {
 
     const welcomeEmbed = new Discord.MessageEmbed()
         .setColor('#05131f')
-        .setTitle('السيرفر نور بوجودك😊!')
-        .setDescription(`اهلا بك يا ${member}, منور سيرفرنا المتواضع😊.`)
+        .setTitle('السيرفر نور بوجودك😊!') // تقدر تغيير المكتوب بين قوسين
+        .setDescription(`اهلا بك يا ${member}, منور سيرفرنا المتواضع😊.`) // تقدر تفيير المكتوب بين قوسين
         .addFields(
             { name: 'Server Rules', value: '<#1164662648080707604>.', inline: true },
             { name: 'Support Channel', value: '<#1166772582951964702>.', inline: true }
         )
         .setThumbnail(member.user.displayAvatarURL())
         .setTimestamp()
-	.setImage("")
+	.setImage("") // بنر سيرفرك او صورة سيرفرك
 	.steTimestamp();
     const bannerUrl = fullUser.bannerURL({ dynamic: true, format: 'png', size: 1024 });
     if (bannerUrl) {
@@ -89,4 +89,4 @@ client.on('guildMemberAdd', async member => {
     invites[member.guild.id] = new Map(newInvites.map(invite => [invite.code, invite.uses]));
 });
 
-client.login(config.botToken);
+client.login(config.botToken); // لا تلعب شي هنا عشان ما يصير لك مشاكل لو تبي تخلي توكن خليه ب  config.json
