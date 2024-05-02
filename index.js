@@ -13,7 +13,7 @@ const getInviteCounts = async (guild) => {
 
 client.once('ready', async () => {
     console.log('Bot is online!');
-	console.log('Code by Wick Studio!');
+	console.log('Code by Wick Studio , Change Mate!');
 	console.log('discord.gg/Wick');
 
     // Load all server invites
