@@ -1,8 +1,9 @@
 const Discord = require('discord.js');
 
-const { Intents } = require('discord.js');
-const client = new Discord.Client({ intents: ["GUILDS", "GUILD_MEMBERS", "GUILD_INVITES"] });
-const config = require('./config.json');
+const { Client, GatewayIntentBits } = require('discord.js');
+const client = new Client({ 
+  intents: [GatewayIntentBits.Guilds, GatewayIntentBits.GuildMembers, GatewayIntentBits.GuildBans] 
+});
 const { MessageActionRow, MessageButton } = require('discord.js');
 
 let invites = {};
